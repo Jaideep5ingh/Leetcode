@@ -1,7 +1,10 @@
-import java.sql.Array;
-import java.util.*;
+package leetcode.problems;
 
-public class Scratch {
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+public class MeetingRoomsII253 {
     public static void main(String args[]) {
         int[][] intervals = {{0,30},{15,20},{5,10}};
 
