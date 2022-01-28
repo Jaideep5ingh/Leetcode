@@ -1,4 +1,4 @@
-package leetcode.problems;
+package leetcode.problems.medium;
 
 public class ReverseInteger7_my {
     public static void main(String args[]) {

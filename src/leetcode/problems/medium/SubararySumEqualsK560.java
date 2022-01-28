@@ -1,4 +1,4 @@
-package leetcode.problems;
+package leetcode.problems.medium;
 
 public class SubararySumEqualsK560 {
     public static void main(String[] args) {
