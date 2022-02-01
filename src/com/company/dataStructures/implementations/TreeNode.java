@@ -2,7 +2,9 @@ package com.company.dataStructures.implementations;
 
 import com.sun.source.tree.Tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class TreeNode {
 
@@ -62,6 +64,25 @@ public class TreeNode {
         System.out.println("The inorder traversal : " + output.toString());
     }
 
+
+    public static void inOrderTraversal(TreeNode root){
+        Stack<TreeNode> tree = new Stack<>();
+        ArrayList<Integer> output = new ArrayList<>();
+        TreeNode curr = root;
+        while(curr != null || !tree.isEmpty()){
+            while (curr !=null){
+                tree.add(curr);
+                curr = curr.left;
+            }
+
+            curr = tree.pop();
+            output.add(curr.val);
+            curr = curr.right;
+
+        }
+        System.out.println("The inorder traversal : " + output.toString());
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         TreeNode second = new TreeNode(2);
@@ -75,5 +96,6 @@ public class TreeNode {
         second.right = fifth;
 
         preOrderTraversal(root);
+        inOrderTraversal(root);
     }
 }
