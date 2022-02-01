@@ -83,6 +83,24 @@ public class TreeNode {
         System.out.println("The inorder traversal : " + output.toString());
     }
 
+    public static void postOrderTraversal(TreeNode root){
+        ArrayList<Integer> list = new ArrayList<>();
+        if(root == null){
+            System.out.println("Root is null");
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode cur = stack.pop();
+            list.add(0, cur.val);
+            if(cur.left != null)
+                stack.push(cur.left);
+            if(cur.right != null)
+                stack.push(cur.right);
+        }
+        System.out.println("The inorder traversal : " + list.toString());
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         TreeNode second = new TreeNode(2);
@@ -97,5 +115,6 @@ public class TreeNode {
 
         preOrderTraversal(root);
         inOrderTraversal(root);
+        postOrderTraversal(root);
     }
 }
