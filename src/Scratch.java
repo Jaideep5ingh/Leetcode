@@ -3,17 +3,16 @@ import java.util.*;import java.util.Map.Entry;
 
  public class Scratch {
   public static void main(String[] args) {
-   int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
-   int current_array = nums[0];
-   int max_array = nums[0];
-   int best = 0;
+   LinkedList<Integer> stack = new LinkedList<>();
+   stack.add(1);
+   stack.add(2);
+   stack.add(4);
+   stack.add(5);
+   stack.add(6);
+   stack.add(8);
 
-   for (int i = 1; i < nums.length; i++) {
-    current_array = nums[i];
-
-    max_array = Math.max(current_array, max_array+current_array);
-    best = Math.max(best, max_array);
+   while(!stack.isEmpty()) {
+    System.out.println(stack.pollLast());
    }
-   System.out.println("Max Sub-array = " + best);
   }
  }
