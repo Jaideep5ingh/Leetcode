@@ -2,9 +2,8 @@ package com.company.dataStructures.implementations;
 
 import com.sun.source.tree.Tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.sql.ResultSet;
+import java.util.*;
 
 public class TreeNode {
 
@@ -101,6 +100,30 @@ public class TreeNode {
         System.out.println("The inorder traversal : " + list.toString());
     }
 
+    public static void BFS(TreeNode root){
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<TreeNode> tree = new LinkedList<>();
+
+        if(root==null) System.out.println("Root is empty");
+
+        tree.add(root);
+        int level =0;
+        while(!tree.isEmpty()){
+            result.add(new ArrayList<>());
+            int level_length = tree.size(); // This is stored as a varible because when we add child nodes, tree.size() changes and should not be used directly in loop conditional
+            for (int i = 0; i < level_length; ++i) {
+                TreeNode node = tree.remove();
+
+                result.get(level).add(node.val);
+
+                if (node.left != null) tree.add(node.left);
+                if (node.right != null) tree.add(node.right);
+            }
+            level++;
+        }
+        System.out.println("BFS : " + result.toString());
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         TreeNode second = new TreeNode(2);
@@ -112,9 +135,12 @@ public class TreeNode {
         root.right = third;
         second.left = fourth;
         second.right = fifth;
+//
+//        preOrderTraversal(root);
+//        inOrderTraversal(root);
+//        postOrderTraversal(root);
 
-        preOrderTraversal(root);
-        inOrderTraversal(root);
-        postOrderTraversal(root);
+        BFS(root);
+
     }
 }
