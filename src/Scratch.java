@@ -8,5 +8,6 @@ public class Scratch {
    ListNode head = new ListNode(5,second);
 
    ListNode.display(head);
+
   }
  }
