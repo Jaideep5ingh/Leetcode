@@ -1,4 +1,4 @@
-import com.company.dataStructures.implementations.SinglyLinkedList;
+package leetcode.problems.medium;
 
 public class ListNode {
     int val;
