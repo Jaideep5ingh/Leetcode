@@ -13,8 +13,8 @@ public class FindWinnerOnATicTacToeGame1275 {
             int row = move[0];
             int col = move[1];
 
-            rows[row] = player++;
-            cols[col] = player++;
+            rows[row] += player;
+            cols[col] += player;
 
             if (row == col){
                 diag += player;
