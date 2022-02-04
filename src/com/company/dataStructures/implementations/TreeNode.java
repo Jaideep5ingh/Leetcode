@@ -110,7 +110,7 @@ public class TreeNode {
         int level =0;
         while(!tree.isEmpty()){
             result.add(new ArrayList<>());
-            int level_length = tree.size(); // This is stored as a varible because when we add child nodes, tree.size() changes and should not be used directly in loop conditional
+            int level_length = tree.size(); // This is stored as a variable because when we add child nodes, tree.size() changes and should not be used directly in loop conditional
             for (int i = 0; i < level_length; ++i) {
                 TreeNode node = tree.remove();
 
