@@ -11,7 +11,7 @@ public class BestTimeToBuyAndSellStock121 {
         int minBuy = prices[0];
 
         if (prices.length == 1){
-            return 0;
+//            return 0;
             //The function should break at this point.
         }
         for (int i = 1; i < prices.length; i++) {
