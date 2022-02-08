@@ -1,6 +1,7 @@
 package leetcode.problems.easy;
 
 public class CountBinarySubstrings696 {
+
     public static void main(String[] args) {
         String s = "00110011";
         int[] groups = new int[s.length()];
