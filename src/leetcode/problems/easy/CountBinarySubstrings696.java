@@ -1,0 +1,23 @@
+package leetcode.problems.easy;
+
+public class CountBinarySubstrings696 {
+    public static void main(String[] args) {
+        String s = "00110011";
+        int[] groups = new int[s.length()];
+        int t = 0;
+        groups[0] = 1;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i-1) != s.charAt(i)) {
+                groups[++t] = 1;
+            } else {
+                groups[t]++;
+            }
+        }
+
+        int ans = 0;
+        for (int i = 1; i <= t; i++) {
+            ans += Math.min(groups[i-1], groups[i]);
+        }
+        System.out.println(ans);
+    }
+}
