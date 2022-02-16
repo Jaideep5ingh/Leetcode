@@ -7,7 +7,7 @@ package Revision.DataStructures;
 //        4. for deleteAtIndex,addAtHead,addAtTail  size variable is used instead of a counter.
 
 public class SinglyLinkedList {
-    ListNode head;
+    public ListNode head;
 
     public SinglyLinkedList() {
         this.head = new ListNode();
@@ -17,12 +17,12 @@ public class SinglyLinkedList {
         this.head = head;
     }
 
-    private void addAtHead(int i) {
+    public void addAtHead(int i) {
         this.head.val = 1;
 
     }
 
-    private void addAtTail(int i) {
+    public void addAtTail(int i) {
         ListNode current = this.head;
         while(current.next!=null){
             current = current.next;
@@ -30,7 +30,7 @@ public class SinglyLinkedList {
         current.next = new ListNode(i);
     }
 
-    private void addAtIndex(int index, int val) {
+    public void addAtIndex(int index, int val) {
         if(index==0){
 
         }
@@ -45,7 +45,7 @@ public class SinglyLinkedList {
         current.next= newNode;
     }
 
-    private void deleteAtIndex(int index) {
+    public void deleteAtIndex(int index) {
         int count = 1;
         ListNode current = this.head;
         while(current.next!=null && count <index){
@@ -55,7 +55,7 @@ public class SinglyLinkedList {
         current.next = current.next.next;
     }
 
-    private int get(int index) {
+    public int get(int index) {
         int count = 1;
         ListNode current = this.head;
         while(current.next!=null && count <index){
@@ -85,21 +85,5 @@ public class SinglyLinkedList {
         myLinkedList.deleteAtIndex(1);
         myLinkedList.display();
         System.out.println(myLinkedList.get(1));
-    }
-
-
-
-
-}
-
-class ListNode{
-    int val;
-    ListNode next;
-
-    ListNode(){
-    }
-
-    ListNode(int val){
-        this.val = val;
     }
 }

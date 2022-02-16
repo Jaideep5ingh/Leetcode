@@ -1,5 +1,5 @@
-import javafx.util.Pair;
-import java.util.*;
+import Revision.DataStructures.ListNode;
+import Revision.DataStructures.SinglyLinkedList;
 
 
 public class Scratch {

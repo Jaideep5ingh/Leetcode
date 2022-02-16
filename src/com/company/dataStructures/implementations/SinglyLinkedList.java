@@ -164,11 +164,11 @@ public class SinglyLinkedList {
     public static void main(String[] args) {
 	// write your code here
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-//        singlyLinkedList.head = new ListNode(10);
+//        singlyLinkedList.head = new Revision.DataStructures.ListNode(10);
 //
-//        SinglyLinkedList.ListNode second = new SinglyLinkedList.ListNode(50);
-//        ListNode third = new ListNode(60);
-//        ListNode fourth = new ListNode(80);
+//        SinglyLinkedList.Revision.DataStructures.ListNode second = new SinglyLinkedList.Revision.DataStructures.ListNode(50);
+//        Revision.DataStructures.ListNode third = new Revision.DataStructures.ListNode(60);
+//        Revision.DataStructures.ListNode fourth = new Revision.DataStructures.ListNode(80);
 //
 //        singlyLinkedList.head.next = second;
 //        second.next = third;

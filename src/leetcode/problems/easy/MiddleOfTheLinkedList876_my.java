@@ -7,7 +7,7 @@ public class MiddleOfTheLinkedList876_my {
         int counter= 1;
         ListNode sixth = new ListNode(1,null);
         ListNode fifth = new ListNode(1,sixth);
-//   ListNode fifth = new ListNode(1,null);
+//   Revision.DataStructures.ListNode fifth = new Revision.DataStructures.ListNode(1,null);
 
         ListNode fourth = new ListNode(2,fifth);
         ListNode third = new ListNode(3,fourth);

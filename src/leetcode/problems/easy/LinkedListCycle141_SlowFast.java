@@ -6,8 +6,8 @@ public class LinkedListCycle141_SlowFast {
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         ListNode second = new ListNode(2);
-//        ListNode third = new ListNode(3);
-//        ListNode fourth = new ListNode(4);
+//        Revision.DataStructures.ListNode third = new Revision.DataStructures.ListNode(3);
+//        Revision.DataStructures.ListNode fourth = new Revision.DataStructures.ListNode(4);
 
         head.next = second;
 //        second.next = third;

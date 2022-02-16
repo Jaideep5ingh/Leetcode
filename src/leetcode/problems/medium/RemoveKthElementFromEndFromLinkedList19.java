@@ -8,8 +8,8 @@ public class RemoveKthElementFromEndFromLinkedList19 {
         int counter= 1;
         int n=2;
 
-//   ListNode sixth = new ListNode(1,null);
-//   ListNode fifth = new ListNode(1,sixth);
+//   Revision.DataStructures.ListNode sixth = new Revision.DataStructures.ListNode(1,null);
+//   Revision.DataStructures.ListNode fifth = new Revision.DataStructures.ListNode(1,sixth);
         ListNode fourth = new ListNode(4,null);
         ListNode third = new ListNode(3,fourth);
         ListNode second = new ListNode(2,third);
