@@ -30,6 +30,7 @@ public class ValidParentheses20 {
                 stack.push(c[i]);
             }
         }
+        if(stack.isEmpty()) result =true;
         System.out.println("Valid Parenthesis ? Ans : " + result );
     }
 }
