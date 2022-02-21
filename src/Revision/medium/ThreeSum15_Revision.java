@@ -1,11 +1,10 @@
-package leetcode.problems.medium;
+package Revision.medium;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ThreeSum15 {
+public class ThreeSum15_Revision {
     public static void main(String[] args) {
         int[] nums  = {-1,0,1,2,-1,-4};
         ArrayList<List<Integer>> list = new ArrayList<>();
@@ -19,7 +18,7 @@ public class ThreeSum15 {
             while(k<j){
                 int sum = nums[counter] + nums[k] + nums[j];
                 if (sum<0)
-                    k++;
+                k++;
                 else if (sum>0) j--;
                 else {
                     list.add(Arrays.asList(nums[counter] , nums[k++],nums[j--]));
