@@ -1,7 +1,7 @@
 package com.company.dataStructures.implementations;
 
 public class UnionFind {
-    int[] root;
+    public int[] root;
     int[] rank;
 
     public UnionFind(int size){

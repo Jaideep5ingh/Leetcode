@@ -1,7 +1,7 @@
 package com.company.dataStructures.implementations;
 
 public class UnionFind_ByRank {
-    int[] root;
+    public int[] root;
     int[] rank;
 
     public UnionFind_ByRank(int size){
@@ -15,11 +15,9 @@ public class UnionFind_ByRank {
     }
 
     public int find(int x){
-        for (int i = 0; i < this.root.length; i++) {
-            while(x!=this.root[i]) {
-                x = root[i];
+        while(x!=this.root[x]) {
+                x = root[x];
             }
-        }
         return x;
     }
 
