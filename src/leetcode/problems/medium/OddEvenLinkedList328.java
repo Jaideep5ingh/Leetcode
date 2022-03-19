@@ -1,4 +1,4 @@
-package leetcode.problems.easy;
+package leetcode.problems.medium;
 
 import Revision.DataStructures.ListNode;
 import Revision.DataStructures.SinglyLinkedList;
