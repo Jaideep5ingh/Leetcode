@@ -8,11 +8,11 @@ public class MaximumSubArray1 {
         int best = 0;
 
         for (int i = 1; i < nums.length; i++) {
-            current_array = nums[i];
+            current_array = Math.max(nums[i],current_array + nums[i]);
 
-            max_array = Math.max(current_array, max_array+current_array);
-            best = Math.max(best, max_array);
+            max_array = Math.max(current_array, max_array);
+//            best = Math.max(best, max_array);
         }
-        System.out.println("Max Sub-array = " + best);
+        System.out.println("Max Sub-array = " + max_array);
     }
 }
