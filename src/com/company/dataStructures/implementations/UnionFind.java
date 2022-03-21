@@ -4,6 +4,9 @@ public class UnionFind {
     public int[] root;
     int[] rank;
 
+    public UnionFind() {
+    }
+
     public UnionFind(int size){
         root = new int[size];
         rank = new int[size];
