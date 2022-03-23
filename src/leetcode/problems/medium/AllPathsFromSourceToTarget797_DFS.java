@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AllPathsFromSourceToTarget797 {
+public class AllPathsFromSourceToTarget797_DFS {
     public static void main(String[] args) {
         int[][] graph = {{1,2}, {3},{3},{}};
         int n =5;
