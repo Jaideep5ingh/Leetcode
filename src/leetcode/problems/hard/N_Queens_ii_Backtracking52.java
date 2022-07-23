@@ -3,7 +3,7 @@ package leetcode.problems.hard;
 import java.util.HashSet;
 import java.util.Set;
 
-public class N_Queens_ii_Backtracking {
+public class N_Queens_ii_Backtracking52 {
     private static int size;
 
     public static void main(String[] args) {
