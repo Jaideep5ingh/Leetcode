@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class N_Queens_51 {
+public class N_Queens_51_Backtracking {
     private static int size;
     private static List<List<String>> result = new ArrayList<List<String>>();
 
