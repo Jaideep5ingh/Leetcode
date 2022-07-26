@@ -1,20 +1,9 @@
-package leetcode.problems.easy;
+package leetcode.problems.medium;
+
+import com.company.dataStructures.implementations.TreeNode;
 
 import java.util.ArrayList;
 
-//Definition for a binary tree node.
-class TreeNode {
-    public int val;
-    public leetcode.problems.TreeNode left;
-    public leetcode.problems.TreeNode right;
-    TreeNode() {}
-    public TreeNode(int val) { this.val = val; }
-    public TreeNode(int val, leetcode.problems.TreeNode left, leetcode.problems.TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 public class InorderTraversal94_Recursion {
     public static void main(String[] args) {
