@@ -1,15 +1,15 @@
-import com.company.dataStructures.implementations.UnionFind;
+package leetcode.problems.medium;
 
-public class UnionFindScratch {
+public class NumberOfConnectedComponentsInAnUndirectedGraph323_UnionFind {
     public int[] root;
     int[] rank;
     static int count;
 
-    public UnionFindScratch() {
+    public NumberOfConnectedComponentsInAnUndirectedGraph323_UnionFind() {
 
     }
 
-    public UnionFindScratch(int size){
+    public NumberOfConnectedComponentsInAnUndirectedGraph323_UnionFind(int size){
         root = new int[size];
         rank = new int[size];
 
@@ -56,7 +56,7 @@ public class UnionFindScratch {
     public static void main(String[] args) throws Exception {
         int[][] edges = {{0,1},{1,2},{0,2},{3,4}};
         int n = 5;
-        UnionFindScratch uf = new UnionFindScratch(n);
+        NumberOfConnectedComponentsInAnUndirectedGraph323_UnionFind uf = new NumberOfConnectedComponentsInAnUndirectedGraph323_UnionFind(n);
 
         //1. No separate components, 2. No Cycles.
         for (int[] edge : edges){
