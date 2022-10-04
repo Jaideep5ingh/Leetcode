@@ -10,18 +10,23 @@ import java.util.List;
 public class LinkedListScratch {
 //    public static HashMap<Integer, Integer> hashMap = new HashMap<>();
 
+    static ListNode resList = new ListNode();
+    static ListNode head = resList;
+    static int carry =0;
+
     public static void main(String[] args) {
-        ListNode four = new ListNode(4, null);
+        ListNode five = new ListNode(4, null);
+        ListNode four = new ListNode(3, five);
         ListNode two = new ListNode(2, four);
         ListNode head1 = new ListNode(1, two);
 
-        ListNode six = new ListNode(6, null);
-        ListNode five = new ListNode(5, six);
-        ListNode four2 = new ListNode(4, five);
-        ListNode three = new ListNode(3, four2);
-        ListNode head2 = new ListNode(2, three);
-
-        ListNode current = mergeTwoLists(head1, head2);
+//        ListNode six = new ListNode(6, null);
+//        ListNode five = new ListNode(5, six);
+//        ListNode four2 = new ListNode(3, null);
+//        ListNode three = new ListNode(9, null);
+//        ListNode head2 = new ListNode(9, three);
+//
+        ListNode current = swapInPair(head1);
 //        current = current.next;
         while (current!=null){
             System.out.println(current.val);
@@ -29,47 +34,21 @@ public class LinkedListScratch {
         }
     }
 
-    public static ListNode mergeTwoListsJai(ListNode head1, ListNode head2) {
-        //check for one of both null;
-        if ((head1 == null && head2 == null)
-//                || (head1.next == null && head2.next == null)
-        ) {
-            return null;
-        }
-        if ((head1 != null && head2 == null)) {
-            return head1;
-        }
-        if ((head1 == null && head2 != null)) {
-            return head2;
-        }
-        if (head1.val < head2.val) {
-            ListNode resultHead = new ListNode();
-            resultHead.next = mergeTwoListsJai(head1, head2.next);
-            return resultHead;
-        }
-        if (head1.val > head2.val) {
-            ListNode resultHead = new ListNode();
-            resultHead.next = mergeTwoListsJai(head1.next, head2);
-            return resultHead;
-        }
-        return null;
-    }
-
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-        else if (l2 == null) {
-            return l1;
-        }
-        else if (l1.val < l2.val) {
-            l1.next = mergeTwoLists(l1.next, l2);
-            return l1;
-        }
-        else {
-            l2.next = mergeTwoLists(l1, l2.next);
-            return l2;
+    public static ListNode swapInPair(ListNode head){
+        // If the list has no node or has only one node left.
+        if ((head == null) || (head.next == null)) {
+            return head;
         }
 
+        // Nodes to be swapped
+        ListNode firstNode = head;
+        ListNode secondNode = head.next;
+
+        // Swapping
+        firstNode.next  = swapInPair(secondNode.next);
+        secondNode.next = firstNode;
+
+        // Now the head is the second node
+        return secondNode;
     }
 }

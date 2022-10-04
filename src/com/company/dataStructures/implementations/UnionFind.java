@@ -1,5 +1,8 @@
 package com.company.dataStructures.implementations;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class UnionFind {
     public int[] root;
     int[] rank;
@@ -78,19 +81,25 @@ public class UnionFind {
     }
 
     public static void main(String[] args) throws Exception {
-        UnionFind uf = new UnionFind(10);
-        // 1-2-5-6-7 3-8-9 4
-        uf.union(1, 2);
-        uf.union(2, 5);
-        uf.union(5, 6);
-        uf.union(6, 7);
-        uf.union(3, 8);
-        uf.union(8, 9);
-        System.out.println(uf.connected(1, 5)); // true
-        System.out.println(uf.connected(5, 7)); // true
-        System.out.println(uf.connected(4, 9)); // false
-        // 1-2-5-6-7 3-8-9-4
-        uf.union(9, 4);
-        System.out.println(uf.connected(4, 9)); // true
+        int[][] isConnected = {{1,1,0},{1,1,0},{0,0,1}};
+        Set<Integer> result = new HashSet<>();
+        UnionFind uf = new UnionFind(isConnected.length);
+
+        for (int i =0 ; i< isConnected.length; ++i){
+            for (int j =0 ; j< isConnected.length; ++j){
+                if(isConnected[i][j] == 1 && i!=j){
+                    uf.union(i, j);
+                }
+            }
+        }
+
+        for (int i =0; i < uf.root.length; ++i){
+            int x = uf.find(i);
+            if(!result.contains(x)){
+                result.add(x);
+            }
+        }
+
+        System.out.println(result.size());
     }
 }

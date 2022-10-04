@@ -16,6 +16,7 @@ public class UnionFind_PathCompression {
             return x;
         }
         return root[x] = find(root[x]);
+//        return root[x];
     }
 
     public void union(int x, int y){
@@ -34,7 +35,7 @@ public class UnionFind_PathCompression {
     public static void main(String[] args) {
         UnionFind_PathCompression uf = new UnionFind_PathCompression(10);
         // 1-2-5-6-7 3-8-9 4
-        uf.union(1, 2);
+        uf.union(2, 1);
         uf.union(2, 5);
         uf.union(5, 6);
         uf.union(6, 7);

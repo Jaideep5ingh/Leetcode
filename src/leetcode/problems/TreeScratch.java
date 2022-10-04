@@ -2,16 +2,18 @@ package leetcode.problems;
 
 import com.sun.source.tree.Tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 //Definition for a binary tree node.
 class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
     TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-    TreeNode(int val, TreeNode left, TreeNode right) {
+    public TreeNode(int val) { this.val = val; }
+    public TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;
@@ -19,51 +21,67 @@ class TreeNode {
 }
 
 public class TreeScratch {
-//
-//    static int leftDepth = 0;
-//    static int rightDepth = 0;
-    public static int[] treesArray;
 
+    static TreeNode first = null;
+    static TreeNode last = null;
 
     public static void main(String[] args) {
-//        TreeNode fifteen = new TreeNode(15);
-//        TreeNode seven = new TreeNode(7);
-//        TreeNode nine = new TreeNode(9, fifteen, seven);
-//        TreeNode twenty = new TreeNode(20);
-//        TreeNode root = new TreeNode(3, nine, twenty);
+        TreeNode three = new TreeNode(3);
+        TreeNode one = new TreeNode(1);
+        TreeNode two = new TreeNode(2, one, three);
+        TreeNode five = new TreeNode(5);
+        TreeNode root = new TreeNode(4, two, five);
 
-        int n = 4;
-        if (n == 0) {
-            System.exit(0);
+//        TreeNode one1 = new TreeNode(1, null, null);
+//        TreeNode three1 = new TreeNode(3);
+//        TreeNode root1 = new TreeNode(2, one1, three1);
+
+//        TreeNode one2 = new TreeNode(1, null, null);
+//        TreeNode three2 = new TreeNode(3);
+//        TreeNode root2 = new TreeNode(2, one2, three2);
+
+        TreeNode first = convert(root);
+
+        TreeNode current = first;
+
+        do{
+            System.out.print(current.val);
+            System.out.print("-->");
+            current = current.right;
+        }while(current.val != 5);
+
+        System.out.print("-->");
+        System.out.print(current.val);
+
+    }
+    public static TreeNode convert(TreeNode root){
+
+        if(root == null) {
+            return null;
         }
-        LinkedList<TreeNode> result =  generate_trees(1, n);
+
+        helper(root);
+
+        first.left = last;
+        last.right = first;
+
+        return first;
     }
 
-    public static LinkedList<TreeNode> generate_trees(int start, int end) {
-        LinkedList<TreeNode> all_trees = new LinkedList<TreeNode>();
-        if (start > end) {
-            all_trees.add(null);
-            return all_trees;
-        }
+    public static void helper(TreeNode node){
+        if (node!= null){
+            helper(node.left);
 
-        // pick up a root
-        for (int i = start; i <= end; i++) {
-            // all possible left subtrees if i is choosen to be a root
-            LinkedList<TreeNode> left_trees = generate_trees(start, i - 1);
-
-            // all possible right subtrees if i is choosen to be a root
-            LinkedList<TreeNode> right_trees = generate_trees(i + 1, end);
-
-            // connect left and right trees to the root i
-             for (TreeNode l : left_trees) {
-                for (TreeNode r : right_trees) {
-                    TreeNode current_tree = new TreeNode(i);
-                    current_tree.left = l;
-                    current_tree.right = r;
-                    all_trees.add(current_tree);
-                }
+            if(last != null){
+                last.right = node;
+                node.left = last;
+            }else{
+                first = node;
             }
+            last = node;
+
+            helper(node.right);
         }
-        return all_trees;
     }
+
 }

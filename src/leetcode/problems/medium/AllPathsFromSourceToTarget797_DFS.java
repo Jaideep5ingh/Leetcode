@@ -7,7 +7,7 @@ import java.util.List;
 public class AllPathsFromSourceToTarget797_DFS {
     public static void main(String[] args) {
         int[][] graph = {{1,2}, {3},{3},{}};
-        int n =5;
+        int n =4;
         List<List<Integer>> paths = new ArrayList<>();
 
         if(graph == null || graph.length ==0){
