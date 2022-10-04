@@ -53,13 +53,15 @@ public class Scratch {
     public static void main(String[] args) {
         int[][] points = {{0, 0}, {2, 2}, {3, 10}, {5, 2}, {7, 0}};
         Kruskal_my kruskalMy = new Kruskal_my();
+        Prim_my primMy = new Prim_my();
         System.out.print("Minimum Cost to Connect Points = ");
-        System.out.println(kruskalMy.minCostConnectPoints(points));
+        System.out.println(kruskalMy.minCostConnectPoints_Kruskal(points));
+        System.out.println(primMy.minCostConnectPoints_Prim(points));
     }
 }
 
 class Kruskal_my{
-    protected int minCostConnectPoints(int[][] points){
+    protected int minCostConnectPoints_Kruskal(int[][] points){
         int result = 0;
         PriorityQueue<Edge> pq = new PriorityQueue<>((x,y) -> x.cost - y.cost);
         int size = points.length;
@@ -91,6 +93,59 @@ class Kruskal_my{
         return result;
     }
 
+    class Edge{
+        int point1;
+        int point2;
+        int cost;
+
+        Edge(int point1, int point2, int cost){
+            this.point1 = point1;
+            this.point2 = point2;
+            this.cost = cost;
+        }
+    }
+}
+
+class Prim_my{
+
+    protected int minCostConnectPoints_Prim(int[][] points){
+        int result = 0;
+        PriorityQueue<Edge> pq = new PriorityQueue<>((x,y) -> x.cost - y.cost);
+        int size = points.length;
+        int count = size - 1;
+        boolean[] visited = new boolean[size];
+
+        int[] coordinate1 = points[0];
+        for (int i = 1; i < size; i++) {
+            int[] coordinate2 = points[i];
+            int cost = Math.abs(coordinate1[0] - coordinate2[0]) +
+                    Math.abs(coordinate1[1] - coordinate2[1]);
+            Edge edge = new Edge(0, i, cost);
+            pq.add(edge);
+        }
+        visited[0]=true;
+
+        while (!pq.isEmpty() && count>0){
+            Edge current = pq.poll();
+            int point1 = current.point1;
+            int point2 = current.point2;
+            if(!visited[point2]){
+                result+=current.cost;
+                visited[point2] = true;
+                for (int i = 0; i < size; i++) {
+                    if(!visited[i]){
+                        int distance = Math.abs(points[point2][0] - points[i][0]) +
+                                Math.abs(points[point2][1] - points[i][1]);
+                        Edge edge = new Edge(point2, i, distance);
+                        pq.add(edge);
+                    }
+                }
+                count--;
+            }
+        }
+
+        return result;
+    }
     class Edge{
         int point1;
         int point2;
