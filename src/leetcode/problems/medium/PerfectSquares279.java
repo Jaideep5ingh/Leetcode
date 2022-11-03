@@ -5,6 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+//Question very similar to https://leetcode.com/explore/learn/card/graph/623/kahns-algorithm-for-topological-sorting/3954/
+//in terms of overall execution - need 2 queues, main queue points to the new at the end of each iteration,
+// level is incremented at the beginning of outer loop.
+
 public class PerfectSquares279 {
     public static void main(String[] args) {
         int n= 17;
