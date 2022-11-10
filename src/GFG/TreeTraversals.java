@@ -33,6 +33,16 @@ public class TreeTraversals {
         }
     }
 
+    static void preOrder(TreeNode root){
+        if(root == null){
+            return;
+        }
+
+        System.out.print(root.val + " ");
+        inOrder_recursion(root.left);
+        inOrder_recursion(root.right);
+    }
+
     public static void main(String[] args) {
         TreeTraversals tree = new TreeTraversals();
         tree.root = new TreeNode(1);
