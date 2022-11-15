@@ -21,15 +21,15 @@ public class TreeTraversals {
 
     static void inOrder_Stack(TreeNode root){
         Stack<TreeNode> stack = new Stack<>();
-
-        while (root!=null){
-            stack.push(root);
-            root = root.left;
-        }
-        while(!stack.isEmpty()){
-            TreeNode current = stack.pop();
+        TreeNode current = root;
+        while(!stack.isEmpty() || current!=null){
+            while (current!=null){
+                stack.push(current);
+                current = current.left;
+            }
+            current = stack.pop();
             System.out.print(current.val + " ");
-            if(current.right !=null) stack.push(current.right);
+            current = current.right;
         }
     }
 
@@ -144,8 +144,8 @@ public class TreeTraversals {
         tree.root.right.right = new TreeNode(7);
 //        inOrder_recursion(tree.root);
 //        System.out.println("");
-//        inOrder_Stack(tree.root);
-//        System.out.println("");
+        inOrder_Stack(tree.root);
+        System.out.println("");
 //        preOrder(tree.root);
 //        System.out.println("");
 //        levelOrder(tree.root);
@@ -153,7 +153,7 @@ public class TreeTraversals {
 //        postOrder_Stack(tree.root);
 //        System.out.println("");
 //        morrisInOrder(tree.root);
-        System.out.println("");
-        morrisPreOrder(tree.root);
+//        System.out.println("");
+//        morrisPreOrder(tree.root);
     }
 }
