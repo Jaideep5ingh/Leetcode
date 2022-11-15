@@ -37,7 +37,6 @@ public class TreeTraversals {
         if(root == null){
             return;
         }
-
         System.out.print(root.val + " ");
         preOrder(root.left);
         preOrder(root.right);
@@ -91,6 +90,49 @@ public class TreeTraversals {
         }
     }
 
+    static void morrisInOrder(TreeNode root){
+        TreeNode current = root;
+        while(current != null){
+            if(current.left == null){
+                System.out.print(current.val + " ");
+                current = current.right;
+            }
+            else{
+                TreeNode prev = current.left;
+                while(prev.right != null) prev = prev.right;
+                prev.right = current;
+                TreeNode temp = current;
+                current = current.left;
+                temp.left = null;
+            }
+        }
+    }
+
+    static void morrisPreOrder(TreeNode root){
+        TreeNode current = root;
+        while(current != null){
+            if(current.left == null){
+                System.out.print(current.val + " ");
+                current = current.right;
+            }
+            else{
+                TreeNode prev = current.left;
+                while(prev.right != null && prev.right != current){
+                    prev = prev.right;
+                }
+                if(prev.right == null){
+                    System.out.print(current.val + " ");
+                    prev.right = current;
+                    current = current.left;
+                }
+                else{
+                    prev.right = null;
+                    current = current.right;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         TreeTraversals tree = new TreeTraversals();
         tree.root = new TreeNode(1);
@@ -105,9 +147,13 @@ public class TreeTraversals {
 //        inOrder_Stack(tree.root);
 //        System.out.println("");
 //        preOrder(tree.root);
-        System.out.println("");
+//        System.out.println("");
 //        levelOrder(tree.root);
 //        preOrder_Stack(tree.root);
-        postOrder_Stack(tree.root);
+//        postOrder_Stack(tree.root);
+//        System.out.println("");
+//        morrisInOrder(tree.root);
+        System.out.println("");
+        morrisPreOrder(tree.root);
     }
 }
