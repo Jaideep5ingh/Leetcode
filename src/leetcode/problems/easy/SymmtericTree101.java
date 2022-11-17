@@ -26,6 +26,14 @@ public class SymmtericTree101 {
         return true;
     }
 
+    static boolean symmetricTree(TreeNode node1, TreeNode node2){
+        if(node1 == null && node2 == null) return true;
+        if(node1 == null || node2 == null) return false;
+        return (node1.val == node2.val) && symmetricTree(node1.left, node2.right)
+                && symmetricTree(node1.right, node2.left);
+    }
+
+
 
     public static void main(String[] args) {
         DsScratch tree = new DsScratch();
