@@ -25,9 +25,29 @@ public class ProductOfArrayExceptSelf238 {
         }
     }
 
+    public static  void productExceptSelf_constantSpace(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        ans[0] = 1;
+
+        for (int i = 1; i < n; i++) {
+            ans[i] = ans[i-1] * nums[i-1];
+        }
+
+        int R = 1;
+        for (int i = n-1; i>=0; i--) {
+            ans[i] = ans[i] * R;
+            R *= nums[i];
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(ans[i]  + " ");
+        }
+    }
+
     public static void main(String[] args) {
         int[] nums = {1,2,3,4};
-        productExceptSelf(nums);
+        productExceptSelf_constantSpace(nums);
     }
 
 }
