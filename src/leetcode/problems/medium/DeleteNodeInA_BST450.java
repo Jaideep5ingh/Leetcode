@@ -4,10 +4,10 @@ import com.company.dataStructures.implementations.DsScratch;
 import com.company.dataStructures.implementations.TreeNode;
 
 public class DeleteNodeInA_BST450 {
-    static com.company.dataStructures.implementations.TreeNode searchNode;
-    public static com.company.dataStructures.implementations.TreeNode bst_insert(com.company.dataStructures.implementations.TreeNode root, int key){
+    static TreeNode searchNode;
+    public static TreeNode bst_insert(TreeNode root, int key){
         if(root == null){
-            searchNode =  new com.company.dataStructures.implementations.TreeNode(key);
+            searchNode =  new TreeNode(key);
             return searchNode;
         }
         if(root.val > key){
@@ -19,7 +19,7 @@ public class DeleteNodeInA_BST450 {
         return root;
     }
 
-    public int successor(com.company.dataStructures.implementations.TreeNode root) {
+    public static int successor(TreeNode root) {
         root = root.right;
         while (root.left != null) root = root.left;
         return root.val;
@@ -28,13 +28,13 @@ public class DeleteNodeInA_BST450 {
     /*
     One step left and then always right
     */
-    public int predecessor(com.company.dataStructures.implementations.TreeNode root) {
+    public static int predecessor(TreeNode root) {
         root = root.left;
         while (root.right != null) root = root.right;
         return root.val;
     }
 
-    public com.company.dataStructures.implementations.TreeNode deleteNode(TreeNode root, int key){
+    public static TreeNode deleteNode(TreeNode root, int key){
         if(root == null) return null;
 
         if(root.val > key) root.left = deleteNode(root.left, key);
@@ -65,7 +65,7 @@ public class DeleteNodeInA_BST450 {
 
         DsScratch.inOrder_Stack(tree.root);
         System.out.println(" ");
-        tree.deleteNode(tree.root, 2);
+        deleteNode(tree.root, 2);
         DsScratch.inOrder_Stack(tree.root);
         System.out.println(" ");
     }
