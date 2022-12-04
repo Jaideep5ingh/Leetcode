@@ -3,6 +3,7 @@ package leetcode.problems.medium;
 import com.company.dataStructures.implementations.TreeNode;
 
 public class LowestCommonAncestorOfBinarySearchTree235 {
+
     public static TreeNode lowestCommonAncestorBST(TreeNode root, TreeNode p, TreeNode q){
         int rootVal= root.val;
         int pVal = p.val;
