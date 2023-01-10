@@ -9,7 +9,9 @@ public class BinarySearchSinglyLinkedList_GFG {
 
         do{
             ListNode mid = findCenterNode(left, right);
-            if(mid == null) return false;
+            if(mid == null) return false; //this has to be the first check as if mid is returned as null,
+                                          //we shouldn't check if it is equal to the target or anything else.
+                                          //An exception will be thrown in case of any other if statements
             if(mid.val == target) return true;
             else if(mid.val < target)  left = mid.next;
             else right = mid;
