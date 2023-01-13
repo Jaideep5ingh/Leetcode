@@ -34,6 +34,20 @@ public class SearchInSortedArrayOfUnknownSize704 {
         return -1;
     }
 
+    public static int search_v2(int target) {
+        int left = 0, right = (int)(Math.pow(10, 4));
+        int max = (int)(Math.pow(2, 31) - 1);
+
+        while(left<=right){
+            int mid = (left + right) >> 1;
+            int midVal = sendNumber(mid);
+            if(midVal == target) return mid;
+            if(sendNumber(mid) == max || midVal > target) right = mid-1;
+            else left = mid + 1;
+        }
+        return -1;
+    }
+
     public static int sendNumber(int i){
         int[] nums = {-1,0,3,5,9,12};
         if(i >= nums.length) return (int)(Math.pow(2, 31) - 1);
@@ -43,6 +57,6 @@ public class SearchInSortedArrayOfUnknownSize704 {
     public static void main(String[] args) {
 //        System.out.println(search_leetcode(9));
         System.out.println(search_v1(9));
-//        System.out.println(search_v2(9));
+        System.out.println(search_v2(9));
     }
 }
