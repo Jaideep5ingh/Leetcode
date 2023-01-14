@@ -15,6 +15,23 @@ public class Search_A_2DMatrix74 {
         return false;
     }
 
+
+    public static boolean searchMatrix_leetcode(int[][] matrix, int target) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        if(rows == 0) return false;
+        int left = 0, right = rows * cols - 1;
+        while(left<=right){
+            int mid = (left + right) >> 1;
+            int midVal = matrix[mid/cols][mid%cols];
+            if(midVal == target) return true;
+            if(midVal < target) left = mid+1;
+            else right = mid-1;
+        }
+        return false;
+    }
+
+
     public static boolean binarySearch(int[] nums, int target){
         int left= 0, right = nums.length;
         while(left <= right){
