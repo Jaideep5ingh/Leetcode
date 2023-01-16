@@ -2,6 +2,8 @@ package leetcode.problems.easy;
 
 public class MaxConsecutiveOnes465 {
     public static int findMaxConsecutiveOnes(int[] nums) {
+        //TODO: COULD CHECK FOR NULL ARRAY HERE BUT SINCE
+        //TODO: THE CONSTRAINTS SAY THAT ARRAY SIZE WILL NOT LESS THAN 1
         int result = 0;
         int count = 0;
         for (int i = 0; i < nums.length; i++) {
