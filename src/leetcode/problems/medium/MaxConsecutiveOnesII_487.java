@@ -27,6 +27,28 @@ public class MaxConsecutiveOnesII_487 {
         return Math.max(max, last);
     }
 
+    public int findMaxConsecutiveOnes_simpler(int[] nums) {
+        if (nums == null) {
+            throw new IllegalArgumentException("Input array is null");
+        }
+
+        int prevCount = 0;
+        int curCount = 0;
+        int maxCount = 0;
+
+        for (int n : nums) {
+            if (n == 1) {
+                curCount++;
+            } else {
+                // Including the zero number in the count of previous block
+                prevCount = curCount + 1;
+                curCount = 0;
+            }
+            maxCount = Math.max(maxCount, prevCount + curCount);
+        }
+
+        return maxCount;
+    }
 
     public static void main(String[] args) {
         int[] heights = {1,0,0,1}; //mid = 7, target = 1
