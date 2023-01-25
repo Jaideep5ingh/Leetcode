@@ -1,6 +1,7 @@
 package leetcode.problems.easy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class IntersectionOfTwoArraysII350 {
@@ -33,5 +34,29 @@ public class IntersectionOfTwoArraysII350 {
             }
         }
         System.out.println("" +  result);
+    }
+
+    public static int[] intersection_countSort(int[] nums1, int[] nums2) {
+        int nums1Length = nums1.length;
+        int nums2Length = nums2.length;
+
+        //Always treating nums1 as the shorter array.
+        if(nums1Length  > nums2Length) return intersection_countSort(nums2, nums1);
+
+        int[] countSort = new int[1001];
+        for(int num : nums1) countSort[num]++;
+
+        int[] result = new int[nums1Length];
+        int counter=0;
+
+        for (int i = 0; i < nums2Length; i++) {
+            int num = nums2[i];
+            if(countSort[num]>0){
+                result[counter] = num;
+                countSort[num]--;
+                counter++;
+            }
+        }
+        return Arrays.copyOf(result,counter);
     }
 }
