@@ -33,7 +33,7 @@ public class IntersectionOfTwoArrays349 {
         int nums2Length = nums2.length;
 
         //Always treating nums1 as the shorter array.
-        if(nums1Length  > nums2Length) return intersection(nums2, nums1);
+        if(nums1Length  > nums2Length) return intersection_countSort(nums2, nums1);
 
         int[] countSort = new int[1001];
         for(int num : nums1) countSort[num] = 1;
