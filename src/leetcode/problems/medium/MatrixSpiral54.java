@@ -36,4 +36,54 @@ public class MatrixSpiral54 {
             right--;
         }
     }
+
+    public static List<Integer> spiralOrder_my(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+
+        if (matrix == null || matrix.length == 0) {
+            return result;
+        }
+
+        int row=0, col=0;
+        int N = matrix.length;
+        int M = matrix[0].length;
+        int direction = 1;
+
+        while(row < N && col < M && matrix[row][col]!=101){
+            result.add(matrix[row][col]);
+            matrix[row][col]=101;
+
+            if(direction == 1) {
+                if(col+1>=M || matrix[row][col+1]==101) {
+                    direction = 2;
+                    row++;
+                }
+                else col++; //right
+            }
+            else if(direction == 2) {
+                if(row+1 >= N || matrix[row+1][col]==101){
+                    direction = 3;
+                    col--;
+                }
+                else row++; //down
+            }
+            else if(direction==3) {
+                if(col-1<0 || matrix[row][col-1]==101) {
+                    direction = 4;
+                    row--;
+                }
+                else col--; //left
+            }
+            else if(direction==4) {
+                if(row-1 < 0 || matrix[row-1][col]==101) {
+                    direction = 1;
+                    col++;
+                }
+                else row--; //up
+            }
+            if(col < 0 || row < 0) break;
+        }
+        return result;
+    }
+
 }
