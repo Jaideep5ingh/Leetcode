@@ -5,6 +5,7 @@ public class MinimumSizeSubarraySum209 {
         int left = 0, right = 1;
         int min = Integer.MAX_VALUE;//change according to required value when no such combination is found.
         int windowSum=nums[left];
+        if(windowSum>=target) return 1;
         while(right<nums.length){
             if(nums[right]==target) return 1;
             windowSum +=nums[right];
@@ -13,11 +14,7 @@ public class MinimumSizeSubarraySum209 {
                 windowSum -= nums[left++];
                 if(left == right && right+1<nums.length)++right;
             }else if(windowSum < target) right++;
-            else {
-                if(windowSum == target) min = Math.min(min, right - left - 1);
-                windowSum=-nums[left++];
-                if(left == right && right+1<nums.length)++right;
-            }
+            else windowSum=-nums[left++];
         }
         return min == Integer.MAX_VALUE? 0 : min;
     }
@@ -55,7 +52,7 @@ public class MinimumSizeSubarraySum209 {
     public static void main(String[] args) {
         int[] nums = {10, 2, 3};
         int target = 6;
-        System.out.println(minSubArrayLen_leetcode(target, nums));
+        System.out.println(minSubArrayLen_my_not_working(target, nums));
 
     }
 }
