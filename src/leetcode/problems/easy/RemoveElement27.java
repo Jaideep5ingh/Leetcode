@@ -14,5 +14,17 @@ public class RemoveElement27 {
             else i++; //inside else because if the element at n-1 is also val, we need to send it at the back again
         }
         System.out.println(n);
+        System.out.println(removeElement(nums, val));
+    }
+
+    public static int removeElement(int[] nums, int val) {
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]!=val){
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+        return k;
     }
 }
