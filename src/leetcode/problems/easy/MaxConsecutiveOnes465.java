@@ -16,6 +16,15 @@ public class MaxConsecutiveOnes465 {
         return result;
     }
 
+    public static int findMaxConsecutiveOnes_shorter(int[] nums) {
+        int count=0, max = 0;
+        for (int num : nums){
+            if(num==1) max = Math.max(++count,max);
+            else count = 0;
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         int[] nums = {1,0,1,1,0,1}; //mid = 7, target = 1
         System.out.println(findMaxConsecutiveOnes(nums));
